@@ -7,9 +7,9 @@ Add jar file to solr/lib.
 
 Add elements to solrconfig:
 
-    <directoryFactory class="org.apache.solr.config.contrib.TimedDirectoryFactory"></directoryFactory>
+    <directoryFactory class="org.apache.solr.core.contrib.TimedDirectoryFactory"></directoryFactory>
 
-    <requestHandler name="/dirStats" class="com.theplatform.search.tv.directory.DirectoryStatsHandler">
+    <requestHandler name="/dirStats" class="org.apache.solr.core.contrib.DirectoryStatsHandler">
     </requestHandler>
 
 Run Solr.
