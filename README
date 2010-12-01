@@ -1,0 +1,29 @@
+Adds some I/O timing metrics to solr so you can evaluate your disk performance. 
+
+Only works for NIOFSDirectory (non-Windows systems). 
+
+Build project.
+Add jar file to solr/lib.
+
+Add elements to solrconfig:
+
+    <directoryFactory class="org.apache.solr.config.contrib.TimedDirectoryFactory"></directoryFactory>
+
+    <requestHandler name="/dirStats" class="com.theplatform.search.tv.directory.DirectoryStatsHandler">
+    </requestHandler>
+
+Run Solr.
+Open:
+
+/dirStats
+
+to see I/O timing information. 
+
+Open:
+
+/dirStats?reset=true
+
+to reset stats.
+
+This wraps readInternal() call in NIOFSDirectory in lucene. I believe this will end up capturing all the bytes read from disk and the amount of time spent reading these bytes.
+
